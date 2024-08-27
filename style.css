@@ -5,6 +5,96 @@ body {
     padding: 0;
 }
 
+/* Estilos para a mensagem de erro */
+.alert-danger {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #721c24; /* Cor do texto */
+    background-color: #f8d7da; /* Cor de fundo */
+    border-color: #f5c6cb; /* Cor da borda */
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+.alert-danger::before {
+    content: '⚠️'; /* Símbolo de alerta */
+    font-size: 20px; /* Tamanho do símbolo */
+    margin-right: 10px; /* Espaço entre o símbolo e o texto */
+    color: #721c24; /* Cor do símbolo */
+}
+
+.alert-danger h4 {
+    margin: 0;
+    font-weight: bold; /* Negrito para o título */
+}
+
+.alert-danger p {
+    margin: 5px 0 0;
+}
+
+/* Animação de entrada para a mensagem */
+.alert-danger {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos para a mensagem de sucesso */
+.alert-success {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #155724; /* Cor do texto */
+    background-color: #d4edda; /* Cor de fundo */
+    border-color: #c3e6cb; /* Cor da borda */
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+.alert-success::before {
+    content: '✓'; /* Símbolo de check para indicar sucesso */
+    font-size: 20px; /* Tamanho do símbolo */
+    margin-right: 10px; /* Espaço entre o símbolo e o texto */
+    color: #28a745; /* Cor do símbolo */
+}
+
+.alert-success h4 {
+    margin: 0;
+    font-weight: bold; /* Negrito para o título */
+}
+
+.alert-success p {
+    margin: 5px 0 0;
+}
+
+/* Animação de entrada para a mensagem */
+.alert-success {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
 header {
     background-color: #007bff;
     color: white;

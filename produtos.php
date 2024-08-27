@@ -1,29 +1,61 @@
 <?php
 include('header.php');
 
+$error_message = '';
+$success_message = '';
+
+// Processar exclusão de produto
+if (isset($_POST['delete_product'])) {
+    $product_id = $_POST['product_id'];
+    $sql = "DELETE FROM produtos WHERE product_id=$product_id";
+    if ($conn->query($sql) === TRUE) {
+        $success_message = "Produto excluído com sucesso!";
+    } else {
+        $error_message = "Erro ao excluir produto: " . $conn->error;
+    }
+}
+
+// Processar adição de produto
 if (isset($_POST['add_product'])) {
     $nome = $_POST['nome'];
     $quantidade = $_POST['quantidade'];
     $preco = $_POST['preco'];
-
-    $sql = "INSERT INTO produtos (nome, quantidade, preco) VALUES ('$nome', '$quantidade', '$preco')";
-    $conn->query($sql);
-} elseif (isset($_POST['delete_product'])) {
-    $product_id = $_POST['product_id'];
-
-    $sql = "DELETE FROM produtos WHERE id=$product_id";
-    $conn->query($sql);
+    if (!is_numeric($preco)) {
+        $error_message = "O preço deve ser um número!";
+    } else {
+        $precoNumero = floatval($preco);
+        $sql = "INSERT INTO produtos (nome, quantidade, preco) VALUES ('$nome', '$quantidade', '$precoNumero')";
+        if ($conn->query($sql) === TRUE) {
+            $success_message = "Produto adicionado com sucesso!";
+        } else {
+            $error_message = "Erro ao adicionar produto: " . $conn->error;
+        }
+    }
 }
 ?>
 
 <div class="container">
     <h2>Gerenciar Produtos</h2>
 
+    <!-- Mensagem de sucesso -->
+    <?php if ($success_message): ?>
+        <div class="alert alert-success">
+            <?php echo $success_message; ?>
+        </div>
+    <?php endif; ?>
+
+    <!-- Mensagem de erro -->
+    <?php if ($error_message): ?>
+        <div class="alert alert-danger">
+            <?php echo $error_message; ?>
+        </div>
+    <?php endif; ?>
+
     <!-- Adicionar Produto -->
     <form method="post">
         <input type="text" name="nome" placeholder="Nome do Produto" required>
         <input type="number" name="quantidade" placeholder="Quantidade" required>
-        <input type="number" name="preco" placeholder="Preço (R$)" required>
+        <input type="text" name="preco" placeholder="Preço (R$)" required>
         <button type="submit" name="add_product">Adicionar Produto</button>
     </form>
 
@@ -41,14 +73,14 @@ if (isset($_POST['add_product'])) {
         $result = $conn->query("SELECT * FROM produtos");
         while ($row = $result->fetch_assoc()) {
             echo "<tr>
-                    <td>{$row['id']}</td>
+                    <td>{$row['product_id']}</td>
                     <td>{$row['nome']}</td>
                     <td>{$row['quantidade']}</td>
                     <td>R$ {$row['preco']}</td>
                     <td>
-                        <a href='editar_produto.php?id={$row['id']}'>Editar</a>
+                        <a href='editar_produto.php?product_id={$row['product_id']}'>Editar</a>
                         <form method='post' style='display:inline;'>
-                            <input type='hidden' name='product_id' value='{$row['id']}'>
+                            <input type='hidden' name='product_id' value='{$row['product_id']}'>
                             <button type='submit' name='delete_product'>Excluir</button>
                         </form>
                     </td>
