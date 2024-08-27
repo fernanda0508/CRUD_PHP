@@ -68,7 +68,7 @@ if (isset($_POST['delete_user'])) {
         $result = $conn->query("SELECT * FROM usuarios");
         while ($row = $result->fetch_assoc()) {
             echo "<tr>
-                    <td>{$row['id']}</td>
+                    <td>{$row['user_id']}</td>
                     <td>{$row['nome']}</td>
                     <td>R$ {$row['saldo']}</td>
                     <td>
