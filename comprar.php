@@ -53,6 +53,10 @@ if (isset($_POST['comprar'])) {
         $error_message = $e->getMessage();
     }
 }
+
+// Verificar se há produtos disponíveis
+$produtos_disponiveis = $conn->query("SELECT * FROM produtos WHERE quantidade > 0");
+$produtos_disp = $produtos_disponiveis->num_rows > 0;
 ?>
 
 <div class="container">
@@ -72,33 +76,33 @@ if (isset($_POST['comprar'])) {
         </div>
     <?php endif; ?>
 
-    <form method="post">
-        <label for="user_id">Selecione o Usuário:</label>
-        <select name="user_id" required>
+    <?php if ($produtos_disp): ?>
+        <form method="post">
+            <label for="user_id">Selecione o Usuário:</label>
+            <select name="user_id" required>
+                <?php
+                $result = $conn->query("SELECT * FROM usuarios");
+                while ($row = $result->fetch_assoc()) {
+                    echo "<option value='{$row['user_id']}'>{$row['nome']} (Saldo: R$ {$row['saldo']})</option>";
+                }
+                ?>
+            </select>
+
+            <h3>Selecione os Produtos:</h3>
             <?php
-            $result = $conn->query("SELECT * FROM usuarios");
-            while ($row = $result->fetch_assoc()) {
-                echo "<option value='{$row['user_id']}'>{$row['nome']} (Saldo: R$ {$row['saldo']})</option>";
+            // Mostrar os produtos disponíveis
+            while ($row = $produtos_disponiveis->fetch_assoc()) {
+                echo "<div>
+                    <label>{$row['nome']} (Disponível: {$row['quantidade']}, Preço: R$ {$row['preco']}): </label>
+                    <input type='number' name='produtos[{$row['product_id']}]' min='0' max='{$row['quantidade']}' placeholder='Quantidade'>
+                  </div>";
             }
             ?>
-        </select>
-
-        <h3>Selecione os Produtos:</h3>
-        <?php
-        // Alterar a consulta SQL para filtrar produtos com quantidade maior que zero
-        $result = $conn->query("SELECT * FROM produtos WHERE quantidade > 0");
-        if ($result->num_rows == 0) {
-            echo "<p>Nenhum produto disponível para compra</p>";
-        }
-        while ($row = $result->fetch_assoc()) {
-            echo "<div>
-                <label>{$row['nome']} (Disponível: {$row['quantidade']}, Preço: R$ {$row['preco']}): </label>
-                <input type='number' name='produtos[{$row['product_id']}]' min='0' max='{$row['quantidade']}' placeholder='Quantidade'>
-              </div>";
-        }
-        ?>
-        <button type="submit" name="comprar">Comprar</button>
-    </form>
+            <button type="submit" name="comprar">Comprar</button>
+        </form>
+    <?php else: ?>
+        <p>Nenhum produto disponível para compra.</p>
+    <?php endif; ?>
 </div>
 
 <?php include('footer.php'); ?>
