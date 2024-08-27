@@ -72,7 +72,7 @@ if (isset($_POST['delete_user'])) {
                     <td>{$row['nome']}</td>
                     <td>R$ {$row['saldo']}</td>
                     <td>
-                        <a href='editar_usuario.php?user_id={$row['user_id']}'>Editar</a>
+                        <a class='botao' href='editar_usuario.php?user_id={$row['user_id']}'>Editar</a>
                         <form method='post' style='display:inline;'>
                             <input type='hidden' name='user_id' value='{$row['user_id']}'>
                             <button type='submit' name='delete_user'>Excluir</button>

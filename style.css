@@ -5,6 +5,16 @@ body {
     padding: 0;
 }
 
+.botao {
+    padding: 10px 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 /* Estilos para a mensagem de erro */
 .alert-danger {
     padding: 15px;
@@ -144,6 +154,8 @@ input[type="text"], input[type="number"], select {
     border-radius: 4px;
     border: 1px solid #ccc;
 }
+
+
 
 button {
     padding: 10px 15px;

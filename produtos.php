@@ -78,7 +78,7 @@ if (isset($_POST['add_product'])) {
                     <td>{$row['quantidade']}</td>
                     <td>R$ {$row['preco']}</td>
                     <td>
-                        <a href='editar_produto.php?product_id={$row['product_id']}'>Editar</a>
+                        <a class='botao' href='editar_produto.php?product_id={$row['product_id']}'>Editar</a>
                         <form method='post' style='display:inline;'>
                             <input type='hidden' name='product_id' value='{$row['product_id']}'>
                             <button type='submit' name='delete_product'>Excluir</button>
