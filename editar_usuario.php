@@ -30,12 +30,6 @@ if (isset($_POST['update_user'])) {
 <div class="container">
     <h2>Editar Usuário</h2>
 
-    <!-- Mensagem de sucesso -->
-    <?php if ($success_message): ?>
-        <div class="alert alert-success">
-            <?php echo $success_message; ?>
-        </div>
-    <?php endif; ?>
 
     <!-- Mensagem de erro -->
     <?php if ($error_message): ?>

@@ -33,13 +33,6 @@ if (isset($_POST['update_product'])) {
 <div class="container">
     <h2>Editar Produto</h2>
 
-    <!-- Mensagem de sucesso -->
-    <?php if ($success_message): ?>
-        <div class="alert alert-success">
-            <?php echo $success_message; ?>
-        </div>
-    <?php endif; ?>
-
     <!-- Mensagem de erro -->
     <?php if ($error_message): ?>
         <div class="alert alert-danger">
