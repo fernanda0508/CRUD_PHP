@@ -9,6 +9,10 @@ body {
   height: auto;
   margin-bottom: 5%;
 }
+p{
+  color: white;
+  font-size: 15px;
+}
 
 .alert-danger {
   padding: 15px;
@@ -102,7 +106,7 @@ label {
 
 /* Cabeçalho e Navegação */
 header {
-  background: rgba(0, 6, 73, 0.688);
+  background: rgba(0, 4, 51, 0.576);
   padding: 25px 0;
   text-align: center;
   padding-left: 20px;
@@ -112,7 +116,6 @@ header {
   display: flex;
   align-items: center;
 }
-
 
 
 nav ul {
@@ -301,13 +304,15 @@ input[type="file"]::-webkit-file-upload-button {
 
 button {
   padding: 10px 15px;
-  background-color: rgb(46, 30, 130);
+  background-color: rgb(28, 44, 109);
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-family: monospace;
   transition: transform 0.3s ease;
+  font-size: 14px;
+  margin-top: 3%;
 }
 
 button:hover {
@@ -316,13 +321,15 @@ button:hover {
 
 a.botao {
   padding: 10px 15px;
-  background-color: rgb(46, 30, 130);
+  background-color: rgb(28, 44, 109);
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   text-decoration: none;
   transition: transform 0.3s ease;
+  font-size: 14px;
+  
 }
 
 a.botao:hover {
@@ -340,6 +347,7 @@ td {
   border: 1px solid #ccc;
   border-radius: 10px;
   color: rgb(255, 255, 255);
+  font-size: 16px;
 }
 
 th,
@@ -349,14 +357,29 @@ td {
 }
 
 th {
-  font-size: 16px;
-  /* Aumenta o tamanho do texto dos cabeçalhos */
+  font-size: 17px;
   font-weight: bold;
-  /* Negrito para os cabeçalhos */
+  
+}
+
+td.acao a.botao {
+  display: inline-block;
+  width: 55px; 
+  margin: 5px 0; 
+}
+
+td.nome-produto {
+  max-width: 160px; 
+  word-wrap: break-word;
+}
+
+td.acao {
+  white-space: nowrap; 
+  width: 100px; 
 }
 
 footer {
-  background: rgba(7, 0, 44, 0.337);
+  background: rgba(0, 4, 51, 0.445);
   color: white;
   text-align: center;
   padding: 10px;
@@ -447,7 +470,7 @@ footer {
 }
 
 .icon-container {
-  background-color: rgba(28, 0, 120, 0.877);
+  background-color: rgba(0, 24, 120, 0.877);
   padding: 20px;
   border-radius: 50%;
   margin-bottom: 20px;
@@ -515,6 +538,7 @@ footer {
   margin-bottom: 20px;
 }
 
+/* Responsividade */
 /* Para tablets em modo paisagem */
 @media only screen and (max-width: 1024px) {
   .container {
@@ -567,8 +591,19 @@ footer {
   h4 {
     font-size: 1.2rem;
   }
-}
 
+  .menu-block {
+    width: 100%;
+  }
+
+  td.nome-produto {
+    max-width: 120px;
+  }
+
+  td.acao {
+    width: auto;
+  }
+}
 
 /* Para smartphones */
 @media only screen and (max-width: 480px) {
@@ -608,5 +643,118 @@ footer {
   td {
     font-size: 12px;
     padding: 5px;
+  }
+
+  td.nome-produto {
+    max-width: 100px;
+  }
+
+  td.acao {
+    white-space: normal;
+    width: auto;
+  }
+}
+
+/* Ajuste para smartphones */
+@media only screen and (max-width: 480px) {
+  .carousel-item {
+    height: 100%;
+    width: 90%;  /* Reduzir a largura do item do carrossel */
+      /* Reduzir o padding */
+    font-size: 0.7rem;  /* Reduzir o tamanho da fonte */
+    padding-top: 25%;
+    
+  }
+
+  .carousel-item h3 {
+    font-size: 0.7rem;  /* Ajustar tamanho da fonte do título */
+    padding: 0%;
+  }
+
+  .carousel-item p {
+    font-size: 0.6rem; 
+    padding-bottom: 50%; /* Ajustar tamanho da fonte do texto */
+    padding-top: 0%;
+  }
+
+  .carousel-controls button {
+    padding: 5px 10px;  /* Reduzir tamanho dos botões de navegação */
+  }
+
+  .carousel-item i{
+      font-size: 0.9rem;
+      
+  }
+
+  .carousel-item h1{
+    display: none;
+  }
+}
+
+
+/* Ajustes gerais para telas menores */
+@media only screen and (max-width: 480px) {
+  .container {
+    padding: 10px; /* Ajustar padding para telas pequenas */
+    margin: 10% auto;
+  }
+
+  table, th, td {
+    font-size: 12px; /* Reduzir o tamanho da fonte na tabela */
+    padding: 15px; /* Reduzir o padding das células */
+   
+  }
+
+  th, td {
+    text-align: center; /* Garantir que o texto fique centralizado */
+    padding-bottom: 15px;
+  }
+
+  td.acao {
+    white-space: nowrap;
+    width: 70px;
+    display: flex; 
+    flex-direction: column; /* Coloca os botões um embaixo do outro */
+    gap: 5px; /* Espaçamento entre os botões */
+    padding: 20px; /* Ajustar padding conforme necessário */
+  }
+  
+  td.acao a.botao{
+    font-size: 10px;
+    flex-grow: 1;
+    text-align: center;
+    width: 40px;
+  }
+  p{
+    color: #000000;
+  }
+  
+  td.acao button {
+    font-size: 10px;
+    flex-grow: 1;
+    text-align: center;
+
+  }
+  
+
+  
+
+  .tabela-container {
+    width: 100%;
+    overflow-x: auto; /* Adiciona a barra de rolagem horizontal */
+    -webkit-overflow-scrolling: touch; /* Suaviza a rolagem no iOS */
+}
+
+  a.botao{
+    font-size: 13px;
+  }
+
+  button{
+    font-size: 12px;
+    margin-top: 25%;
+  }
+
+  footer{
+    display: none;
   }
 }

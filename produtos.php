@@ -84,35 +84,37 @@ if (isset($_POST['add_product'])) {
 
     <!-- Listagem de Produtos -->
     <h3>Produtos</h3>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Quantidade</th>
-            <th>Preço (R$)</th>
-            <th>Imagem</th>
-            <th>Ação</th>
-        </tr>
-        <?php
-        $result = $conn->query("SELECT * FROM produtos");
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr>
-                    <td>{$row['product_id']}</td>
-                    <td>{$row['nome']}</td>
-                    <td>{$row['quantidade']}</td>
-                    <td>R$ {$row['preco']}</td>
-                    <td><img src='{$row['imagem']}' width='50'></td>
-                    <td>
-                        <a class='botao' href='editar_produto.php?product_id={$row['product_id']}'>Editar</a>
-                        <form method='post' style='display:inline;'>
-                            <input type='hidden' name='product_id' value='{$row['product_id']}'>
-                            <button type='submit' name='delete_product'>Excluir</button>
-                        </form>
-                    </td>
-                  </tr>";
-        }
-        ?>
-    </table>
+    <div class="tabela-container">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Quantidade</th>
+                <th>Preço (R$)</th>
+                <th>Imagem</th>
+                <th>Ação</th>
+            </tr>
+            <?php
+            $result = $conn->query("SELECT * FROM produtos");
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>
+                        <td>{$row['product_id']}</td>
+                        <td class='nome-produto'>{$row['nome']}</td>
+                        <td>{$row['quantidade']}</td>
+                        <td>R$ {$row['preco']}</td>
+                        <td><img src='{$row['imagem']}' width='50'></td>
+                        <td class='acao'>
+                            <a class='botao' href='editar_produto.php?product_id={$row['product_id']}'>Editar</a>
+                            <form method='post' style='display:inline;'>
+                                <input type='hidden' name='product_id' value='{$row['product_id']}'>
+                                <button type='submit' name='delete_product'>Excluir</button>
+                            </form>
+                        </td>
+                    </tr>";
+            }
+            ?>
+        </table>
+    </div>
 </div>
 
 <?php include('footer.php'); ?>
