@@ -89,15 +89,23 @@ $produtos_disp = $produtos_disponiveis->num_rows > 0;
             </select>
 
             <h3>Selecione os Produtos:</h3>
-            <?php
-            // Mostrar os produtos disponíveis
-            while ($row = $produtos_disponiveis->fetch_assoc()) {
-                echo "<div>
-                    <label>{$row['nome']} (Disponível: {$row['quantidade']}, Preço: R$ {$row['preco']}): </label>
+            <div class="products-grid">
+                <?php
+                // Mostrar os produtos disponíveis
+                while ($row = $produtos_disponiveis->fetch_assoc()) {
+                    echo "<div class='product-card'>
+                <img src='{$row['imagem']}' alt='{$row['nome']}' class='product-image'>
+                <div class='product-info'>
+                    <h4>{$row['nome']}</h4>
+                    <p>Disponível: {$row['quantidade']}</p>
+                    <p>Preço: R$ {$row['preco']}</p>
                     <input type='number' name='produtos[{$row['product_id']}]' min='0' max='{$row['quantidade']}' placeholder='Quantidade'>
-                  </div>";
-            }
-            ?>
+                </div>
+              </div>";
+                }
+                ?>
+            </div>
+
             <button type="submit" name="comprar">Comprar</button>
         </form>
     <?php else: ?>
