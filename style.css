@@ -99,7 +99,7 @@ label{
 
 /* Cabeçalho e Navegação */
 header {
-  background: rgba(7, 0, 44, 0.814);
+  background: rgba(0, 6, 73, 0.688);
   padding: 25px 0;
   text-align: center;
   padding-left: 20px;
@@ -445,50 +445,39 @@ footer {
   }
 }
 
-/* Para tablets em modo retrato e dispositivos menores */
+/* Para telas menores (tablets e smartphones) */
 @media only screen and (max-width: 768px) {
-  .container {
-    max-width: 95%;
-    padding: 15px;
-  }
-
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-    padding-right: 0;
-  }
-
-  nav ul li {
-    margin: 10px 0;
-  }
-
-  .menu-blocks {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .menu-block {
-    width: 90%;
-    margin-bottom: 20px;
-  }
-
   .carousel {
-    height: auto;
+    height: 250px; /* Reduza a altura do carrossel */
   }
 
   .carousel-item {
-    width: 100%;
-    padding: 10px;
+    width: 100%; /* Garanta que os itens do carrossel ocupem toda a largura */
+    height: 100%; /* Ajuste a altura dos itens do carrossel */
+  }
+
+  .carousel-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; /* Garanta que a imagem se ajuste dentro do item */
   }
 
   .carousel-controls button {
     padding: 8px 12px;
+    font-size: 14px; /* Reduza o tamanho dos botões */
   }
 
-  h1, h2, h3, h4 {
-    font-size: 1.2rem;
+  /* Ajustes nos botões de navegação do carrossel */
+  .carousel-controls button {
+    width: 30px;
+    height: 30px;
+  }
+
+  .carousel-controls button i {
+    font-size: 18px; /* Ajuste o tamanho do ícone dentro dos botões */
   }
 }
+
 
 /* Para smartphones */
 @media only screen and (max-width: 480px) {
