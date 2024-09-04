@@ -109,7 +109,7 @@ $produtos_disp = $produtos_disponiveis->num_rows > 0;
             <button type="submit" name="comprar">Comprar</button>
         </form>
     <?php else: ?>
-        <p>Nenhum produto disponível para compra.</p>
+        <p style='color:white'>Nenhum produto disponível para compra.</p>
     <?php endif; ?>
 </div>
 

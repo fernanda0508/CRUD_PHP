@@ -9,10 +9,7 @@ body {
   height: auto;
   margin-bottom: 5%;
 }
-p{
-  color: white;
-  font-size: 15px;
-}
+
 
 .alert-danger {
   padding: 15px;
@@ -286,6 +283,7 @@ input[type="file"]::-webkit-file-upload-button {
 
 .product-info {
   padding: 15px;
+  color: black;
 }
 
 .product-info h4 {
@@ -298,13 +296,12 @@ input[type="file"]::-webkit-file-upload-button {
   margin: 5px 0;
   font-size: 14px;
   text-align: center;
+  color: black;
 }
-
-
 
 button {
   padding: 10px 15px;
-  background-color: rgb(28, 44, 109);
+  background-color: rgb(0, 20, 102);
   color: white;
   border: none;
   border-radius: 4px;
@@ -321,7 +318,7 @@ button:hover {
 
 a.botao {
   padding: 10px 15px;
-  background-color: rgb(28, 44, 109);
+  background-color: rgb(0, 20, 102);
   color: white;
   border: none;
   border-radius: 4px;
@@ -470,7 +467,7 @@ footer {
 }
 
 .icon-container {
-  background-color: rgba(0, 24, 120, 0.877);
+  background-color: rgb(0, 20, 102);
   padding: 20px;
   border-radius: 50%;
   margin-bottom: 20px;
@@ -725,7 +722,7 @@ footer {
     text-align: center;
     width: 40px;
   }
-  p{
+  .p{
     color: #000000;
   }
   
@@ -736,8 +733,9 @@ footer {
 
   }
   
-
-  
+  p.msg{
+    color:white;
+  }
 
   .tabela-container {
     width: 100%;
