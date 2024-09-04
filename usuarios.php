@@ -69,13 +69,13 @@ if (isset($_POST['delete_user'])) {
         while ($row = $result->fetch_assoc()) {
             echo "<tr>
                     <td>{$row['user_id']}</td>
-                    <td>{$row['nome']}</td>
+                    <td class='nome-produto'>{$row['nome']}</td>
                     <td>R$ {$row['saldo']}</td>
                     <td>
                         <a class='botao' href='editar_usuario.php?user_id={$row['user_id']}'>Editar</a>
                         <form method='post' style='display:inline;'>
                             <input type='hidden' name='user_id' value='{$row['user_id']}'>
-                            <button type='submit' name='delete_user'>Excluir</button>
+                            <button type='submit' name='delete_user' class='botao'>Excluir</button>
                         </form>
                     </td>
                   </tr>";
