@@ -15,8 +15,7 @@ if (isset($_POST['update_user'])) {
     $saldo = $_POST['saldo'];
     if (!is_numeric($saldo)) {
         $error_message = "Saldo deve ser um número";
-    }
-    else {
+    } else {
         $saldoNumero = floatval($saldo);
         $sql = "UPDATE usuarios SET nome='$nome', saldo='$saldoNumero' WHERE user_id=$user_id";
         $conn->query($sql);
@@ -44,7 +43,11 @@ if (isset($_POST['update_user'])) {
         <input type="text" name="nome" value="<?php echo $usuario['nome']; ?>" required>
         <input type="text" name="saldo" value="<?php echo $usuario['saldo']; ?>" required>
         <button type="submit" name="update_user">Salvar Alterações</button>
-        <a href="usuarios.php" id="cancel">Cancelar Alterações</a>
+        <a href="usuarios.php" id="cancel"
+            style="background-color: #8B0000; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Cancelar
+            Alterações</a>
+
+
     </form>
 </div>
 
