@@ -722,8 +722,9 @@ footer {
     text-align: center;
     width: 40px;
   }
-  .p{
-    color: #000000;
+
+  p{
+    color: #020202;
   }
   
   td.acao button {
@@ -732,10 +733,7 @@ footer {
     text-align: center;
 
   }
-  
-  p.msg{
-    color:white;
-  }
+
 
   .tabela-container {
     width: 100%;
