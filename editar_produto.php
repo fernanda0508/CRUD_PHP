@@ -70,6 +70,7 @@ if (isset($_POST['update_product'])) {
         <img src="<?php echo $produto['imagem']; ?>" width="100">
         <input type="file" name="imagem">
         <button type="submit" name="update_product">Salvar Alterações</button>
+        <a href="produtos.php" id="cancel">Cancelar Alterações</a>
     </form>
 </div>
 

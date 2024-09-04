@@ -44,6 +44,7 @@ if (isset($_POST['update_user'])) {
         <input type="text" name="nome" value="<?php echo $usuario['nome']; ?>" required>
         <input type="text" name="saldo" value="<?php echo $usuario['saldo']; ?>" required>
         <button type="submit" name="update_user">Salvar Alterações</button>
+        <a href="usuarios.php" id="cancel">Cancelar Alterações</a>
     </form>
 </div>
 
